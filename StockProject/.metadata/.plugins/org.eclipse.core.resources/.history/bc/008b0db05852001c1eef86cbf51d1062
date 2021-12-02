@@ -1,0 +1,55 @@
+package model;
+
+import java.util.ArrayList;
+
+import javax.swing.table.AbstractTableModel;
+
+import VO.MyOrderVO;
+import DAO.MyOrderDAO;
+
+public class MyOrderModel extends AbstractTableModel{
+
+	Object[][] data;
+	Object[] columnName;
+	
+	MyOrderDAO mdao = new MyOrderDAO();
+	MyOrderVO mvo = new MyOrderVO();
+	ArrayList<String> title;
+	ArrayList<MyOrderVO>list;
+	
+	public MyOrderModel(){
+		title = mdao.getColumnName();
+		columnName = title.toArray();
+		int columnCount = title.size();
+		list = mdao.getMyOrdertotal();
+		int rowCount = list.size();
+		
+		data = new Object[rowCount][columnCount];
+		for(int index = 0;index<rowCount;index++){
+			mvo = list.get(index);
+			data[index][0]=mvo.getOrder_id();
+			data[index][1]=mvo.getProuct_id();
+			data[index][2]=mvo.getManufacturer_id();
+			data[index][3]=mvo.getOrder_date();
+		}
+	}
+	
+	@Override
+	public int getColumnCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getRowCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Object getValueAt(int arg0, int arg1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

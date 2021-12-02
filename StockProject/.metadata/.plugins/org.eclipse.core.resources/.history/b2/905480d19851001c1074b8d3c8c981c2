@@ -1,0 +1,9 @@
+package DAO;
+
+import VO.ProductVO;
+
+public class ProductDAO {
+	public ProductVO getProduct(ProductVO pvo) throws Exception{
+		String dml = "insert into product (stock,price_number,mid,product_name) values(?,?,?,?)";
+	}
+}

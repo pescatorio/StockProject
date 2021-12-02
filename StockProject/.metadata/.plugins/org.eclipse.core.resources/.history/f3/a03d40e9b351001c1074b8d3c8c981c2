@@ -1,0 +1,48 @@
+package main;
+
+import javax.swing.JFrame;
+import javax.swing.JTabbedPane;
+
+import view.OrderPane;
+import view.ProductPane;
+
+
+public class MainController extends JFrame{
+	private JTabbedPane tp;
+//	private LoginPane lp;
+//	private ProductPane pp;
+	private OrderPane op;
+//	private ProductListPane plp;
+//	private ManufacturerPane mp;
+//	private OrderListPane olp;
+	
+	public MainController(){
+		tp = new JTabbedPane();
+//		lp = new LoginPane();
+		pp = new ProductPane();
+		op = new OrderPane();
+//		plp = new ProductListPane();
+//		mp = new ManufacturerPane();
+//		olp = new OrderListPane();
+		
+//		tp.addTab("로그인",lp);
+		tp.addTab("제품관리",pp);
+		tp.addTab("발주", op);
+//		tp.addTab("제품리스트", plp);
+//		tp.addTab("제조사", mp);
+//		tp.addTab("주문조회리스트", olp);
+		
+		getContentPane().add(tp);
+		setTitle("제품발주시스템(1팀)");
+		
+		pack();
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		new MainController();
+	}
+
+}

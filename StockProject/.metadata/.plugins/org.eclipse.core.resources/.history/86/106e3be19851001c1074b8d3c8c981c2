@@ -1,0 +1,21 @@
+package DAO;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import EmployeeEx.DBUtil;
+import VO.ProductVO;
+
+public class ProductDAO {
+	public ProductVO getProduct(ProductVO pvo) throws Exception{
+		String dml = "insert into product (stock,price_number,mid,product_name) values(?,?,?,?)";
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ProductVO retval = null;
+		try{
+			con = DBUtil.getConnection();
+			pstmt = con.prepareStatement(dml);
+			pstmt.setString(1, pvo.getStock());
+		}
+	}
+}

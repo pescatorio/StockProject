@@ -1,0 +1,57 @@
+package view;
+
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EtchedBorder;
+
+import DAO.ProductDetailDAO;
+import VO.ProductVO;
+
+public class ProductPane extends JPanel implements ActionListener,ItemListener{
+	private JPanel jp[] = new JPanel[6];
+	private JLabel jl[] = new JLabel[5];
+	private JTextField tf[] = new JTextField[5];
+	private JButton rsb;	//주문하기
+	private int order_number =0;
+	ProductVO pvo = new ProductVO();
+	ProductDetailDAO pdao = new ProductDetailDAO();
+	String[] caption = {"제품아이디 : ","제품명 : ","제조사 : ","현재 재고수 : ","발주량 : "};
+	
+	public ProductPane(){
+		setLayout(new GridLayout(6,1));
+		EtchedBorder eb = new EtchedBorder();
+		setBorder(eb);
+		
+		int size = caption.length;
+		int i;
+		for(i=0;i<size-1;i++){
+			jp[i] = new JPanel();
+			jl[i] = new JLabel(caption[i]);
+			tf[i] = new JTextField(15);
+			jp[i].add(jl[i]);
+			jp[i].add(tf[i]);
+			add(jp[i]);
+			
+		}//for
+	
+}
+
+	@Override
+	public void itemStateChanged(ItemEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
