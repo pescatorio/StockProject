@@ -1,9 +1,0 @@
-package DAO;
-
-import VO.ProductVO;
-
-public class ProductDAO {
-	public ProductVO getProduct(ProductVO pvo) throws Exception{
-		
-	}
-}
